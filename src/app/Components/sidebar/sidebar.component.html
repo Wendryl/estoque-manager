@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-light d-flex flex-column vh-100 justify-content-center">
+    <ul class="navbar-nav text-center fs-2">
+        <li class="nav-item  ">
+            <a class="nav-link" [routerLink]="['/dashboard']" title="Dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard/manage-products']" title="Todos os produtos">
+                <i class="fas fa-boxes"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/new-product']" title="Cadastrar produto">
+                <i class="fas fa-plus-square"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']" title="Categorias">
+                <i class="fas fa-tags"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']" title="Meu perfil">
+                <i class="fas fa-user-cog"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']" title="Configurações">
+                <i class="fas fa-cog"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
+    </ul>
+</nav>

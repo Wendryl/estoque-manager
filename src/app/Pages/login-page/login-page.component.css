@@ -1,0 +1,20 @@
+form {
+    max-width: 300px;
+    width: 100%;
+    margin: auto;
+}
+
+.wrapper {
+    width: 100vw;
+    height: 90vh;
+}
+
+.btn-light {
+    background-color: #f1f1f1;
+    border-color: #f1f1f1;
+}
+
+img {
+  max-width: 130px;
+  width: 100%;
+}

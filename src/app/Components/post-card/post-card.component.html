@@ -1,0 +1,21 @@
+<div class="card mt-4 border-1 post-shadow rounded-3" (click)="navigateToPost()">
+    <span class="text-muted p-3 small">
+        {{ postDate }} - {{ postAuthor }}
+    </span>
+    <div class="card-header border-0 bg-white">
+        <h5>
+            {{ postTitle }}
+        </h5>
+    </div>
+    <div class="card-body">
+        <p>
+            {{ postDescription }}
+        </p>
+        <a [routerLink]="['/posts']">
+            Read more
+        </a>
+    </div>
+    <div class="p-3">
+        <span class="badge bg-danger">node</span>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+app-social-bar {
+    position: fixed;
+    top: 40vh;
+    z-index: 1;
+}
+
+.limit {
+    max-width: 1100px;
+}
+
+body {
+    background: #f1f1f1;
+}
+
+app-search-input {
+    position: relative;
+}

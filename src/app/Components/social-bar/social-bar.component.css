@@ -1,0 +1,16 @@
+.social-link {
+    transform: translateX(-32px);
+    transition: .20s all ease-in;
+}
+
+.social-link:hover {
+    transform: translateX(0px);
+}
+
+.linkedin-color {
+    background-color: #0a66c2;
+}
+
+.github-color {
+    background-color: #24292e;
+}

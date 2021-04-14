@@ -1,0 +1,4 @@
+<label [for]="inputId" class="form-label" *ngIf="inputLabel != undefined">{{ inputLabel }}</label>
+<input [id]="inputId" [type]="inputType" class="form-control"
+    [class]="isInvalid? 'form-control is-invalid' : 'form-control'" [placeholder]="inputPlaceholder" [value]="value"
+    (keyup)="doInput($event.target)">
