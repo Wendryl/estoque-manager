@@ -16,6 +16,7 @@ import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { DashboardCardComponent } from './Components/dashboard-card/dashboard-card.component';
 import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { ManageProductsComponent } from './Pages/manage-products-page/manage-products-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ManageProductsComponent } from './Pages/manage-products-page/manage-pro
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

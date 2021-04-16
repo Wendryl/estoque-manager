@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as Swal from 'sweetalert2';
+import * as crypto from 'crypto-js';
+import {UserService} from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   loading = false;
   loginForm!: FormGroup;
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _userService: UserService) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -24,21 +26,23 @@ export class LoginPageComponent implements OnInit {
   submitForm(evt: Event) {
 
     const email = this.loginForm.controls.email.value;
-    const password = this.loginForm.controls.password.value;
+    const password = crypto.SHA256(this.loginForm.controls.password.value).toString(crypto.enc.Base64);
 
     evt.preventDefault();
     this.loading = true;
-    if (email != 'wendryl10000@gmail.com' || password != '123123') {
-      setTimeout(() => {
-        this.loading = false;
-        return Swal.default.fire('Error!', 'Email or password invalid!', 'error');
-      }, 3000)
-    } else {
-      setTimeout(() => {
-        this.loading = false;
-        return this._router.navigate(['/dashboard']);
-      }, 3000)
-    }
+
+    this._userService.auth(email, password)
+      .subscribe(
+        _result => {
+          this.loading = false;
+          return this._router.navigate(['/dashboard']);
+        },
+        _error => {
+          this.loading = false;
+          return Swal.default.fire('Erro!', 'Email ou senha incorretos!', 'error');
+        }
+      )
+
   }
 
 }
