@@ -43,7 +43,7 @@ export class LoginPageComponent implements OnInit {
           if(error.status == 401) {
             return Swal.default.fire('Erro!', 'Email ou senha incorretos!', 'error');
           }
-          Swal.default.fire('Erro!', 'Sentimos muito. Um erro inesperado aconteceu', 'error');
+          return Swal.default.fire('Erro!', 'Sentimos muito. Um erro inesperado aconteceu', 'error');
         }
       )
 
