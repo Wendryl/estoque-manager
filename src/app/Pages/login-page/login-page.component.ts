@@ -37,9 +37,13 @@ export class LoginPageComponent implements OnInit {
           this.loading = false;
           return this._router.navigate(['/dashboard']);
         },
-        _error => {
+        error => {
           this.loading = false;
-          return Swal.default.fire('Erro!', 'Email ou senha incorretos!', 'error');
+
+          if(error.status == 401) {
+            return Swal.default.fire('Erro!', 'Email ou senha incorretos!', 'error');
+          }
+          Swal.default.fire('Erro!', 'Sentimos muito. Um erro inesperado aconteceu', 'error');
         }
       )
 
