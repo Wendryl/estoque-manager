@@ -5,32 +5,35 @@
       <app-dashboard-card
         cardIcon="fa-building"
         cardLabel="Fornecedores"
-        cardCount="2"
+        [cardCount]="companyCounter"
         class="col-md-4">
       </app-dashboard-card>
       <app-dashboard-card
         cardIcon="fa-boxes"
         cardLabel="Produtos"
-        cardCount="8"
+        [cardCount]="productCounter"
+        cardLink="manage-products"
+        class="col-md-4">
+      </app-dashboard-card>
+      <app-dashboard-card
+        cardIcon="fa-tags"
+        cardLabel="Categorias"
         class="col-md-4">
       </app-dashboard-card>
       <app-dashboard-card
         cardIcon="fa-users"
         cardLabel="Usuários"
-        cardCount="8"
         class="col-md-4">
       </app-dashboard-card>
       <app-dashboard-card
         cardIcon="fa-smile"
         cardLabel="Clientes"
-        cardCount="8"
-        class="col-md-6">
+        class="col-md-4">
       </app-dashboard-card>
       <app-dashboard-card
         cardIcon="fa-chart-line"
         cardLabel="Vendas"
-        cardCount="8"
-        class="col-md-6">
+        class="col-md-4">
       </app-dashboard-card>
     </div>
   </div>

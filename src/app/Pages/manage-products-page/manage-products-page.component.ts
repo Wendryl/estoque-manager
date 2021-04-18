@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {IProduct} from 'src/app/Models/product';
+import {ProductService} from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-manage-products-page',
