@@ -8,9 +8,11 @@ import {Observable} from 'rxjs';
 })
 export class UserService {
 
+  api = environment.apiUrl;
+
   constructor(private _http: HttpClient) { }
 
   auth(email: string, password: string): Observable<any> {
-    return this._http.post(`${environment.apiUrl}auth`, { email, password });
+    return this._http.post(`${this.api}auth`, { email, password });
   }
 }
