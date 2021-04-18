@@ -13,10 +13,13 @@ export class DashboardCardComponent implements OnInit {
   cardLabel = '';
 
   @Input()
-  cardCount = '';
+  cardCount = 0;
 
   @Input()
   cardIcon = '';
+
+  @Input()
+  cardLink = '';
 
   ngOnInit(): void {
   }
