@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {AuthGuard} from './auth.guard';
 import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import {ManageProductsComponent} from './Pages/manage-products-page/manage-products-page.component';
@@ -12,16 +13,23 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductPageComponent
+    component: ProductPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard',
-    component: DashboardPageComponent
+    component: DashboardPageComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'dashboard/manage-products',
     component: ManageProductsComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 

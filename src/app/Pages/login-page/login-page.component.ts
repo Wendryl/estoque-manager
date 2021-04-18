@@ -33,8 +33,9 @@ export class LoginPageComponent implements OnInit {
 
     this._userService.auth(email, password)
       .subscribe(
-        _result => {
+        result => {
           this.loading = false;
+          localStorage.setItem('authToken', result.token);
           return this._router.navigate(['/dashboard']);
         },
         error => {
