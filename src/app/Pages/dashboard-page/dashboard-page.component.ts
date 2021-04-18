@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CompanyService} from 'src/app/Services/company.service';
+import {ProductService} from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPageComponent implements OnInit {
 
-  constructor() { }
+  companyCounter = 0;
+  productCounter = 0;
+
+  constructor(
+    private companyService: CompanyService,
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
+
+    this.companyService.list()
+      .subscribe(
+        data => this.companyCounter = data.length
+      )
+
+    this.productService.list()
+      .subscribe(
+        data => this.productCounter = data.length
+      )
   }
 
 }

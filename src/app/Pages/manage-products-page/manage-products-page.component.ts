@@ -9,28 +9,16 @@ import {ProductService} from 'src/app/Services/product.service';
 })
 export class ManageProductsComponent implements OnInit {
 
-  posts = [
-    {
-      id: 1,
-      title: 'AngularJS vs Angular 2+',
-      slug: 'angularjs-vs-angular2'
-    },
-    {
-      id: 2,
-      title: 'AngularJS vs Angular 2+',
-      slug: 'angularjs-vs-angular2'
-    },
-    {
-      id: 3,
-      title: 'AngularJS vs Angular 2+',
-      slug: 'angularjs-vs-angular2'
-    }
+  products: Array<IProduct> = [];
 
-  ];
-
-  constructor() { }
+  constructor(private _productService: ProductService) { }
 
   ngOnInit(): void {
+
+    this._productService.list()
+      .subscribe(
+        data => this.products = data
+      )
   }
 
 }
