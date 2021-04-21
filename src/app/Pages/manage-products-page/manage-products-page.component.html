@@ -22,9 +22,9 @@
                     <td>{{ product.price }}</td>
                     <td>
                         <div class="btn-group">
-                            <button class="btn btn-outline-warning">
+                          <a routerLink="/dashboard/manage-products/{{product.id}}" class="btn btn-outline-warning">
                                 <i class="fas fa-edit"></i>
-                            </button>
+                            </a>
                             <button class="btn btn-outline-danger">
                                 <i class="fas fa-trash"></i>
                             </button>
@@ -34,10 +34,10 @@
 			</tbody>
 		</table>
         <div class="d-flex justify-content-end">
-          <button class="btn btn-primary">
+          <a class="btn btn-primary" [routerLink]="['/dashboard/new-product']">
             <i class="fas fa-plus"></i>
             Adicionar Produto
-          </button>
+          </a>
         </div>
 		<nav *ngIf="false">
 			<ul class="pagination justify-content-center">

@@ -22,4 +22,13 @@ export class ProductService {
 
     return this._httpClient.get<Array<IProduct>>(`${this.api}products`, {headers});
   }
+
+  find(id: number): Observable<IProduct> {
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+    })
+
+    return this._httpClient.get<IProduct>(`${this.api}products/${id}`, {headers});
+  }
 }

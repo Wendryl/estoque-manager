@@ -14,9 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { DashboardCardComponent } from './Components/dashboard-card/dashboard-card.component';
-import { ProductPageComponent } from './Pages/product-page/product-page.component';
 import { ManageProductsComponent } from './Pages/manage-products-page/manage-products-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ProductDetailComponent } from './Pages/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +27,12 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     SocialBarComponent,
     PostCardComponent,
-    ProductPageComponent,
     SearchInputComponent,
     DashboardPageComponent,
     SidebarComponent,
     DashboardCardComponent,
     ManageProductsComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
