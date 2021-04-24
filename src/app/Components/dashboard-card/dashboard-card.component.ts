@@ -21,6 +21,9 @@ export class DashboardCardComponent implements OnInit {
   @Input()
   cardLink = '';
 
+  @Input()
+  iconColor = '';
+
   ngOnInit(): void {
   }
 
