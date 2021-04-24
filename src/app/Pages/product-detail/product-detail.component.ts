@@ -45,8 +45,8 @@ export class ProductDetailComponent implements OnInit {
             this.form.controls.description.setValue(data.description);
             this.form.controls.price.setValue(data.price);
             this.form.controls.quantity.setValue(data.quantity);
-            this.form.controls.provider.setValue(data.provider);
-            this.form.controls.category.setValue(data.category);
+            this.form.controls.provider.setValue(data.provider_id);
+            this.form.controls.category.setValue(data.category_id);
           }
         )
     }
