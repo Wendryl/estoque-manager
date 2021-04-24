@@ -7,6 +7,7 @@ import {IProduct} from 'src/app/Models/product';
 import {CategoryService} from 'src/app/Services/category.service';
 import {CompanyService} from 'src/app/Services/company.service';
 import {ProductService} from 'src/app/Services/product.service';
+import * as Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-detail',
@@ -39,32 +40,42 @@ export class ProductDetailComponent implements OnInit {
     })
 
     if(this.productId) {
-      this.productService.find(Number(this.productId))
-        .subscribe(
-          data => {
-            this.form.controls.description.setValue(data.description);
-            this.form.controls.price.setValue(data.price);
-            this.form.controls.quantity.setValue(data.stock_quantity);
-            this.form.controls.provider.setValue(data.provider_id);
-            this.form.controls.category.setValue(data.category_id);
-          }
-        )
+      this.loadProductData();
     }
+    this.loadCategories();
+    this.loadCompanies();
 
-    this.companyService.list()
+  }
+
+  loadProductData() {
+    this.productService.find(Number(this.productId))
       .subscribe(
         data => {
-          this.providers = data;
+          this.form.controls.description.setValue(data.description);
+          this.form.controls.price.setValue(data.price);
+          this.form.controls.quantity.setValue(data.stock_quantity);
+          this.form.controls.provider.setValue(data.provider_id);
+          this.form.controls.category.setValue(data.category_id);
         }
       )
+  }
 
+  loadCategories() {
     this.categoryService.list()
       .subscribe(
         data => {
           this.categories = data;
         }
       )
+  }
 
+  loadCompanies() {
+    this.companyService.list()
+      .subscribe(
+        data => {
+          this.providers = data;
+        }
+      )
   }
 
   saveProduct() {
@@ -75,7 +86,40 @@ export class ProductDetailComponent implements OnInit {
       price: this.form.controls.price.value,
       stock_quantity: this.form.controls.quantity.value
     }
-    console.log(this.product);
+
+    if(this.productId) {
+      this.productService.update(Number(this.productId), this.product)
+        .subscribe(
+          result => {
+            if(result === 1) {
+              return Swal.default.fire('Tudo certo!',
+                'O produto foi atualizado com sucesso',
+                'success'
+              );
+            }
+            return Swal.default.fire('Erro!',
+              'Um erro inesperado aconteceu ao atualizar o produto',
+              'error'
+            );
+          }
+        )
+    } else {
+      this.productService.create(this.product)
+        .subscribe(
+          result => {
+            if(result) {
+              return Swal.default.fire('Tudo certo!',
+                'O produto foi cadastrado com sucesso',
+                'success'
+              );
+            }
+            return Swal.default.fire('Erro!',
+              'Um erro inesperado aconteceu ao cadastrar o produto',
+              'error'
+            );
+          }
+        )
+    }
   }
 
 }

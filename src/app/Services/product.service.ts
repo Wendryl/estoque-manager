@@ -31,4 +31,22 @@ export class ProductService {
 
     return this._httpClient.get<IProduct>(`${this.api}products/${id}`, {headers});
   }
+
+  create(product: IProduct): Observable<any> {
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+    })
+
+    return this._httpClient.post<any>(`${this.api}products`, product, {headers});
+  }
+
+  update(id: number, product: IProduct): Observable<number> {
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+    })
+
+    return this._httpClient.put<number>(`${this.api}products/${id}`, product, {headers});
+  }
 }
