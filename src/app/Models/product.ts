@@ -4,5 +4,5 @@ export interface IProduct {
   category_id: number,
   provider_id: number,
   price: number,
-  quantity: number
+  stock_quantity: number
 }

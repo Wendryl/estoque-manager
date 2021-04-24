@@ -44,7 +44,7 @@ export class ProductDetailComponent implements OnInit {
           data => {
             this.form.controls.description.setValue(data.description);
             this.form.controls.price.setValue(data.price);
-            this.form.controls.quantity.setValue(data.quantity);
+            this.form.controls.quantity.setValue(data.stock_quantity);
             this.form.controls.provider.setValue(data.provider_id);
             this.form.controls.category.setValue(data.category_id);
           }
@@ -70,10 +70,10 @@ export class ProductDetailComponent implements OnInit {
   saveProduct() {
     this.product = {
       description: this.form.controls.description.value,
-      category: this.form.controls.category.value,
-      provider: this.form.controls.provider.value,
+      category_id: this.form.controls.category.value,
+      provider_id: this.form.controls.provider.value,
       price: this.form.controls.price.value,
-      quantity: this.form.controls.quantity.value
+      stock_quantity: this.form.controls.quantity.value
     }
     console.log(this.product);
   }
