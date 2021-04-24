@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ICategory} from 'src/app/Models/category';
 import {ICompany} from 'src/app/Models/company';
+import {IProduct} from 'src/app/Models/product';
 import {CategoryService} from 'src/app/Services/category.service';
 import {CompanyService} from 'src/app/Services/company.service';
 import {ProductService} from 'src/app/Services/product.service';
@@ -14,7 +15,8 @@ import {ProductService} from 'src/app/Services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  form!: FormGroup
+  form!: FormGroup;
+  product!: IProduct;
   productId = this.route.snapshot.paramMap.get('id');
   providers!: Array<ICompany>;
   categories!: Array<ICategory>;
@@ -63,6 +65,17 @@ export class ProductDetailComponent implements OnInit {
         }
       )
 
+  }
+
+  saveProduct() {
+    this.product = {
+      description: this.form.controls.description.value,
+      category: this.form.controls.category.value,
+      provider: this.form.controls.provider.value,
+      price: this.form.controls.price.value,
+      quantity: this.form.controls.quantity.value
+    }
+    console.log(this.product);
   }
 
 }

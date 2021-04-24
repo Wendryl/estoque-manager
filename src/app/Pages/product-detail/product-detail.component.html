@@ -13,14 +13,14 @@
                 <label for="company" class="form-label">Fornecedor</label>
                 <select name="provider" id="provider" class="form-select" formControlName="provider">
                   <option value="null">Selecione um fornecedor</option>
-                  <option *ngFor="let provider of providers" [value]="provider.name">{{provider.name}}</option>
+                  <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
                 </select>
               </div>
               <div class="col-12 col-md-6">
                 <label for="category" class="form-label">Categoria</label>
                 <select name="category" id="category" class="form-select" formControlName="category">
                   <option value="null">Selecione uma categoria</option>
-                  <option *ngFor="let category of categories" [value]="category.description">{{category.description}}</option>
+                  <option *ngFor="let category of categories" [value]="category.id">{{category.description}}</option>
                 </select>
               </div>
             </div>
@@ -39,7 +39,7 @@
             <a class="btn btn-light" [routerLink]="['/dashboard/manage-products']">
               Voltar
             </a>
-            <button class="btn btn-success mx-2">
+            <button class="btn btn-success mx-2" (click)="saveProduct()">
               Salvar
             </button>
           </div>
