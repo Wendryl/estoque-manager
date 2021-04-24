@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ICategory} from 'src/app/Models/category';
 import {ICompany} from 'src/app/Models/company';
 import {IProduct} from 'src/app/Models/product';
@@ -26,7 +26,8 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private companyService: CompanyService,
     private categoryService: CategoryService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -87,15 +88,34 @@ export class ProductDetailComponent implements OnInit {
       stock_quantity: this.form.controls.quantity.value
     }
 
+    if(
+      !this.product.description ||
+      !this.product.category_id ||
+      !this.product.provider_id ||
+      !this.product.price ||
+      !this.product.stock_quantity
+    ) {
+      return Swal.default.fire(
+        'Aviso!',
+        'Por favor, preencha todos os campos do formulário para continuar!',
+        'warning'
+      );
+    }
+
     if(this.productId) {
       this.productService.update(Number(this.productId), this.product)
         .subscribe(
           result => {
             if(result === 1) {
-              return Swal.default.fire('Tudo certo!',
+              Swal.default.fire('Tudo certo!',
                 'O produto foi atualizado com sucesso',
                 'success'
-              );
+              ).then(
+                _ok => {
+                  return this.router.navigate(['/dashboard/manage-products']);
+                }
+              )
+              return;
             }
             return Swal.default.fire('Erro!',
               'Um erro inesperado aconteceu ao atualizar o produto',
@@ -108,10 +128,15 @@ export class ProductDetailComponent implements OnInit {
         .subscribe(
           result => {
             if(result) {
-              return Swal.default.fire('Tudo certo!',
+              Swal.default.fire('Tudo certo!',
                 'O produto foi cadastrado com sucesso',
                 'success'
-              );
+              ).then(
+                _ok => {
+                  return this.router.navigate(['/dashboard/manage-products']);
+                }
+              )
+              return;
             }
             return Swal.default.fire('Erro!',
               'Um erro inesperado aconteceu ao cadastrar o produto',
@@ -120,6 +145,7 @@ export class ProductDetailComponent implements OnInit {
           }
         )
     }
+    return;
   }
 
 }
