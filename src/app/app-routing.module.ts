@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from './auth.guard';
+import {CompaniesPageComponent} from './Pages/companies-page/companies-page.component';
+import {CompanyDetailComponent} from './Pages/company-detail/company-detail.component';
 import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import {ManageProductsComponent} from './Pages/manage-products-page/manage-products-page.component';
@@ -31,6 +33,24 @@ const routes: Routes = [
   {
     path: 'dashboard/new-product',
     component: ProductDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/new-company',
+    component: CompanyDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/companies',
+    component: CompaniesPageComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/companies/:id',
+    component: CompanyDetailComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard]
   },

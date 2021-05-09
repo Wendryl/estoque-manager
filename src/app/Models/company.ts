@@ -1,5 +1,5 @@
 export interface ICompany {
-  id: number,
+  id?: number,
   name: string,
   phone: string,
   email: string,

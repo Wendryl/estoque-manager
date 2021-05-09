@@ -1,0 +1,54 @@
+<div class="row w-100">
+	<app-sidebar class="col-1"></app-sidebar>
+	<div class="col-11 py-2 px-0">
+        <h1 class="py-2">Novo Fornecedor</h1>
+        <div class="bg-white p-3 rounded">
+          <form [formGroup]="form">
+			<div class="mb-3">
+			  <label for="description" class="form-label">*Nome (Razão Social)</label>
+			  <input placeholder="Insira o nome da empresa fornecedora" type="text" class="form-control" id="name" formControlName="name">
+			</div>
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <label for="phone" class="form-label">*Telefone</label>
+                <input placeholder="(XX) XXXXXXXX" type="phone" class="form-control" id="phone" formControlName="phone">
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="email" class="form-label">E-mail</label>
+                <input placeholder="empresa@fornecedora.com" type="email" class="form-control" id="email" formControlName="email">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-12">
+                <label for="neighborhood" class="form-label">*Endereço</label>
+                <input placeholder="Rua dos Alfeneiros, Nº 4 - Vila Verde" type="text" class="form-control" id="neighborhood" formControlName="neighborhood">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-12 col-md-6">
+                <label for="uf" class="form-label">*Estado (UF)</label>
+                <select name="uf" id="uf" class="form-select" formControlName="uf" (change)="loadCities(form.controls.uf.value)">
+                  <option value="null">Selecione um estado</option>
+                  <option *ngFor="let uf of ufs" [value]="uf.sigla">{{ uf.nome }}</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="uf" class="form-label">*Cidade</label>
+                <select name="city" id="city" class="form-select" formControlName="city">
+                  <option value="null">Selecione uma cidade</option>
+                  <option *ngFor="let city of cities" [value]="city.nome">{{ city.nome }}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-light" [routerLink]="['/dashboard/manage-products']">
+              Voltar
+            </a>
+            <button class="btn btn-success mx-2" (click)="saveCompany()">
+              Salvar
+            </button>
+          </div>
+        </div>
+	</div>
+</div>

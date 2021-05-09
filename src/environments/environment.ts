@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/'
+  apiUrl: 'http://localhost:3000/',
+  ibgeApi: 'https://servicodados.ibge.gov.br/api/v1/localidades/'
 };
 
 /*

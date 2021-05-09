@@ -17,6 +17,9 @@ import { DashboardCardComponent } from './Components/dashboard-card/dashboard-ca
 import { ManageProductsComponent } from './Pages/manage-products-page/manage-products-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductDetailComponent } from './Pages/product-detail/product-detail.component';
+import { CompaniesPageComponent } from './Pages/companies-page/companies-page.component';
+import { ReplaceNullPipe } from './Pipes/replace-null.pipe';
+import { CompanyDetailComponent } from './Pages/company-detail/company-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { ProductDetailComponent } from './Pages/product-detail/product-detail.co
     DashboardCardComponent,
     ManageProductsComponent,
     ProductDetailComponent,
+    CompaniesPageComponent,
+    ReplaceNullPipe,
+    CompanyDetailComponent,
   ],
   imports: [
     BrowserModule,
