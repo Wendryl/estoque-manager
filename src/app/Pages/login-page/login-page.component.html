@@ -10,17 +10,17 @@
             Login
         </h5>
         <div class="mb-3">
-            <app-input [invalid]="!!(loginForm.invalid && loginForm.controls.email.errors)" id="email" label="Email"
-                                                                                                       type="email" placeholder="Your e-mail" formControlName="email">
+            <app-input [invalid]="!!(loginForm.invalid && loginForm.controls.email.errors && requestedLogin)" id="email" label="Email"
+                                                                                                       type="email" placeholder="Seu e-mail" formControlName="email">
             </app-input>
-            <span *ngIf="loginForm.invalid && loginForm.controls.email.errors" class="small text-danger">
+            <span *ngIf="loginForm.invalid && loginForm.controls.email.errors && requestedLogin" class="small text-danger">
                 E-mail Inválido
             </span>
         </div>
         <div class="mb-3">
-            <app-input [invalid]="!!(loginForm.invalid && loginForm.controls.password.errors)" id="password"
-                                                                                               label="Password" type="password" placeholder="Your password" formControlName="password"></app-input>
-            <span *ngIf="loginForm.invalid && loginForm.controls.password.errors" class="small text-danger">
+            <app-input [invalid]="!!(loginForm.invalid && loginForm.controls.password.errors && requestedLogin)" id="password"
+                                                                                               label="Password" type="password" placeholder="Sua senha" formControlName="password"></app-input>
+            <span *ngIf="loginForm.invalid && loginForm.controls.password.errors && requestedLogin" class="small text-danger">
                 A senha não pode estar vazia
             </span>
         </div>

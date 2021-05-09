@@ -13,6 +13,7 @@ import {UserService} from 'src/app/Services/user.service';
 export class LoginPageComponent implements OnInit {
 
   loading = false;
+  requestedLogin = false;
   loginForm!: FormGroup;
   constructor(private _router: Router, private _userService: UserService) { }
 
@@ -23,7 +24,18 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
+  validateForm() {
+    if(this.loginForm.invalid)
+      return false;
+
+    return true;
+  }
+
   submitForm(evt: Event) {
+
+    this.requestedLogin = true;
+    if(!this.validateForm())
+      return false;
 
     const email = this.loginForm.controls.email.value;
     const password = crypto.SHA256(this.loginForm.controls.password.value).toString(crypto.enc.Base64);
@@ -35,11 +47,13 @@ export class LoginPageComponent implements OnInit {
       .subscribe(
         result => {
           this.loading = false;
+          this.requestedLogin = false;
           localStorage.setItem('authToken', result.token);
           return this._router.navigate(['/dashboard']);
         },
         error => {
           this.loading = false;
+          this.requestedLogin = false;
 
           if(error.status == 401) {
             return Swal.default.fire('Erro!', 'Email ou senha incorretos!', 'error');
@@ -48,6 +62,7 @@ export class LoginPageComponent implements OnInit {
         }
       )
 
+    return;
   }
 
 }
