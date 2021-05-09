@@ -49,4 +49,13 @@ export class ProductService {
 
     return this._httpClient.put<number>(`${this.api}products/${id}`, product, {headers});
   }
+
+  delete(id: number): Observable<any> {
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+    })
+
+    return this._httpClient.delete(`${this.api}products/${id}`, {headers});
+  }
 }
