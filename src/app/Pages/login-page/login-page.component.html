@@ -19,7 +19,7 @@
         </div>
         <div class="mb-3">
             <app-input [invalid]="!!(loginForm.invalid && loginForm.controls.password.errors && requestedLogin)" id="password"
-                                                                                               label="Password" type="password" placeholder="Sua senha" formControlName="password"></app-input>
+                                                                                               label="Senha" type="password" placeholder="Sua senha" formControlName="password"></app-input>
             <span *ngIf="loginForm.invalid && loginForm.controls.password.errors && requestedLogin" class="small text-danger">
                 A senha não pode estar vazia
             </span>
@@ -27,7 +27,7 @@
         <div class="d-flex justify-content-center">
             <button [class]="loading ? 'btn btn-primary disabled w-100' : 'btn btn-primary w-100'" (click)="submitForm($event)">
                 <span class="spinner-border spinner-border-sm mx-2" *ngIf="loading"></span>
-                <span *ngIf="!loading">Login</span>
+                <span *ngIf="!loading">Entrar</span>
             </button>
         </div>
     </form>
