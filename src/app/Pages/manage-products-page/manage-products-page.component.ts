@@ -26,7 +26,7 @@ export class ManageProductsComponent implements OnInit {
       )
   }
 
-  async deleteProduct(id: number, description: string) {
+  async deleteProduct(description: string, id?: number) {
     const confirm = await Swal.default.fire({
       title: 'Aviso!',
       html: `Tem certeza que deseja excluir o produto<br> "${description}" ?<br> Esta ação não pode ser revertida!`,
@@ -43,7 +43,7 @@ export class ManageProductsComponent implements OnInit {
     });
 
     if(confirm.isConfirmed) {
-      this._productService.delete(id)
+      this._productService.delete(Number(id))
         .subscribe(
           data => {
             if(data == 1) {

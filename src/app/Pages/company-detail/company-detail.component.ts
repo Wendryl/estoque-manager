@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ICity} from 'src/app/Models/city';
 import {ICompany} from 'src/app/Models/company';
+import {IUf} from 'src/app/Models/uf';
 import {CepService} from 'src/app/Services/cep.service';
 import {CompanyService} from 'src/app/Services/company.service';
 import * as Swal from 'sweetalert2';
@@ -16,8 +18,8 @@ export class CompanyDetailComponent implements OnInit {
   form!: FormGroup;
   company!: ICompany;
   companyId = this.route.snapshot.paramMap.get('id');
-  ufs!: Array<object>;
-  cities!: Array<object>;
+  ufs!: Array<IUf>;
+  cities!: Array<ICity>;
 
   constructor(
     private route: ActivatedRoute,

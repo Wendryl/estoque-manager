@@ -25,7 +25,7 @@
                           <a routerLink="/dashboard/companies/{{company.id}}" class="btn btn-outline-warning">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button class="btn btn-outline-danger" (click)="deleteCompany(company.id, product.name)">
+                            <button class="btn btn-outline-danger" (click)="deleteCompany(company.name, company.id)">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </div>
