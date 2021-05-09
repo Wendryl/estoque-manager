@@ -49,4 +49,13 @@ export class CompanyService {
 
     return this._httpClient.put<number>(`${this.api}companies/${id}`, company, {headers});
   }
+
+  delete(id: number): Observable<number> {
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`,
+    })
+
+    return this._httpClient.delete<number>(`${this.api}companies/${id}`, {headers});
+  }
 }
