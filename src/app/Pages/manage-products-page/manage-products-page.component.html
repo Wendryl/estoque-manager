@@ -9,7 +9,8 @@
 					<th scope="col">Nome do Produto</th>
 					<th scope="col">Marca</th>
 					<th scope="col">Quantidade no estoque</th>
-					<th scope="col">Valor</th>
+					<th scope="col">Valor Unitário</th>
+					<th scope="col">Valor Total</th>
 					<th scope="col"></th>
 				</tr>
 			</thead>
@@ -19,7 +20,8 @@
                     <td>{{ product.description }}</td>
                     <td>{{ product.provider_id }}</td>
                     <td>{{ product.stock_quantity }}</td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.price | currency:'BRL':true:'1.2-2' }}</td>
+                    <td>{{ product.price * product.stock_quantity | currency:'BRL':true:'1.2-2' }}</td>
                     <td>
                         <div class="btn-group">
                           <a routerLink="/dashboard/manage-products/{{product.id}}" class="btn btn-outline-warning">
@@ -30,6 +32,18 @@
                             </button>
                         </div>
                     </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    Valor total do estoque
+                  </td>
+                  <td>
+                  </td>
                 </tr>
 			</tbody>
 		</table>

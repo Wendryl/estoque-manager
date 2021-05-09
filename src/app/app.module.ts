@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,9 @@ import { ProductDetailComponent } from './Pages/product-detail/product-detail.co
 import { CompaniesPageComponent } from './Pages/companies-page/companies-page.component';
 import { ReplaceNullPipe } from './Pipes/replace-null.pipe';
 import { CompanyDetailComponent } from './Pages/company-detail/company-detail.component';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -46,7 +50,12 @@ import { CompanyDetailComponent } from './Pages/company-detail/company-detail.co
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
