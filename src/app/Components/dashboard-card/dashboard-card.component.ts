@@ -13,7 +13,7 @@ export class DashboardCardComponent implements OnInit {
   cardLabel = '';
 
   @Input()
-  cardCount = 0;
+  cardCount: string | number = 0;
 
   @Input()
   cardIcon = '';
