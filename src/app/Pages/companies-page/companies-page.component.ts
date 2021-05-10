@@ -10,6 +10,7 @@ import * as Swal from 'sweetalert2';
 })
 export class CompaniesPageComponent implements OnInit {
 
+  loading = false;
   companies: Array<ICompany> = [];
   toast = Swal.default.mixin({
     toast: true,
@@ -19,9 +20,13 @@ export class CompaniesPageComponent implements OnInit {
   constructor(private _companyService: CompanyService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this._companyService.list()
       .subscribe(
-        data => this.companies = data
+        data => {
+          this.loading = false;
+          this.companies = data;
+        }
       )
   }
 

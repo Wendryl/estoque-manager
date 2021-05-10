@@ -10,6 +10,7 @@ import * as Swal from 'sweetalert2';
 })
 export class ManageProductsComponent implements OnInit {
 
+  loading = false;
   products: Array<IProduct> = [];
   toast = Swal.default.mixin({
     toast: true,
@@ -20,9 +21,13 @@ export class ManageProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.loading = true;
     this._productService.list()
       .subscribe(
-        data => this.products = data
+        data => {
+          this.products = data;
+          this.loading = false;
+        }
       )
   }
 

@@ -9,8 +9,8 @@ import {ProductService} from 'src/app/Services/product.service';
 })
 export class DashboardPageComponent implements OnInit {
 
-  companyCounter = 0;
-  productCounter = 0;
+  companyCounter: string | number = 'Carregando...';
+  productCounter: string | number =  'Carregando...';
 
   constructor(
     private companyService: CompanyService,

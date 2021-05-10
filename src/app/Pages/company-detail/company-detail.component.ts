@@ -20,6 +20,7 @@ export class CompanyDetailComponent implements OnInit {
   companyId = this.route.snapshot.paramMap.get('id');
   ufs!: Array<IUf>;
   cities!: Array<ICity>;
+  title = 'Novo Fornecedor';
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +41,7 @@ export class CompanyDetailComponent implements OnInit {
     })
 
     if(this.companyId) {
+      this.title = 'Editar Fornecedor';
       this.loadCompanyData();
     }
 

@@ -21,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
   productId = this.route.snapshot.paramMap.get('id');
   providers!: Array<ICompany>;
   categories!: Array<ICategory>;
+  title = 'Novo Produto';
 
   constructor(
     private productService: ProductService,
@@ -41,6 +42,7 @@ export class ProductDetailComponent implements OnInit {
     })
 
     if(this.productId) {
+      this.title = 'Editar Produto';
       this.loadProductData();
     }
     this.loadCategories();
