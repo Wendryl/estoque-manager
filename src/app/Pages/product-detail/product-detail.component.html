@@ -1,6 +1,6 @@
 <div class="row w-100">
-	<app-sidebar class="col-1"></app-sidebar>
-	<div class="col-11 py-2 px-0">
+	<app-sidebar class="col-3 col-md-1"></app-sidebar>
+	<div class="col-9 col-md-11 py-2 px-0">
         <h1 class="py-2">Editar Produto</h1>
         <div class="bg-white p-3 rounded">
           <form [formGroup]="form">
@@ -9,14 +9,14 @@
 			  <input placeholder="Insira uma descrição" type="text" class="form-control" id="description" formControlName="description">
 			</div>
             <div class="row mb-3">
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <label for="company" class="form-label">Fornecedor</label>
                 <select name="provider" id="provider" class="form-select" formControlName="provider">
                   <option value="null">Selecione um fornecedor</option>
                   <option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</option>
                 </select>
               </div>
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <label for="category" class="form-label">Categoria</label>
                 <select name="category" id="category" class="form-select" formControlName="category">
                   <option value="null">Selecione uma categoria</option>
@@ -25,11 +25,11 @@
               </div>
             </div>
             <div class="row mb-3">
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <label for="price" class="form-label">Preço</label>
                 <input placeholder="0,00" type="number" step="0.01" class="form-control" id="price" formControlName="price">
               </div>
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
                 <label for="quantity" class="form-label">Quantidade no estoque</label>
                 <input placeholder="0" type="number" step="1" class="form-control" id="quantity" formControlName="quantity">
               </div>

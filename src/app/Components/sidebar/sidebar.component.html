@@ -1,22 +1,22 @@
-<nav class="navbar navbar-light bg-light d-flex flex-column vh-100 justify-content-center">
-    <ul class="navbar-nav text-center fs-2">
-        <li class="nav-item  ">
-            <a class="nav-link" [routerLink]="['/dashboard']" title="Dashboard">
+<nav class="position-fixed navbar navbar-dark bg-success d-flex flex-column vh-100 justify-content-center">
+    <ul class="navbar-nav text-center fs-2 px-2">
+        <li class="nav-item py-2">
+            <a class="text-white" [routerLink]="['/dashboard']" title="Dashboard">
                 <i class="fas fa-tachometer-alt"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['']" title="Meu perfil">
+        <li class="nav-item py-2">
+            <a class="text-white" [routerLink]="['']" title="Meu perfil">
                 <i class="fas fa-user-cog"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="['']" title="Configurações">
+        <li class="nav-item py-2">
+            <a class="text-white" [routerLink]="['']" title="Configurações">
                 <i class="fas fa-cog"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <button style="color: rgba(0,0,0,.55)" class="d-flex flex-row justify-content-center border-0 bg-transparent" (click)="logOut()" title="Logout">
+        <li class="nav-item py-2">
+            <button class="d-flex text-white flex-row justify-content-center border-0 bg-transparent" (click)="logOut()" title="Logout">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
         </li>
