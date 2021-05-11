@@ -23,6 +23,7 @@ import { ReplaceNullPipe } from './Pipes/replace-null.pipe';
 import { CompanyDetailComponent } from './Pages/company-detail/company-detail.component';
 import {registerLocaleData} from '@angular/common';
 import { CategoriesPageComponent } from './Pages/categories-page/categories-page.component';
+import { CategoryDetailComponent } from './Pages/category-detail/category-detail.component';
 
 registerLocaleData(localePt);
 
@@ -45,6 +46,7 @@ registerLocaleData(localePt);
     ReplaceNullPipe,
     CompanyDetailComponent,
     CategoriesPageComponent,
+    CategoryDetailComponent,
   ],
   imports: [
     BrowserModule,

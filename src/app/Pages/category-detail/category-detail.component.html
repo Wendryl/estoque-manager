@@ -1,0 +1,22 @@
+<div class="row w-100">
+	<app-sidebar class="col-3 col-md-1"></app-sidebar>
+	<div class="col-9 col-md-11 py-2 px-0">
+      <h1 class="py-2">{{ title }}</h1>
+        <div class="bg-white p-3 rounded">
+          <form [formGroup]="form">
+			<div class="mb-3">
+			  <label for="description" class="form-label">*Descrição</label>
+			  <input placeholder="Insira a descrição da categoria" type="text" class="form-control" id="description" formControlName="description">
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-light" [routerLink]="['/dashboard/categories']">
+              Voltar
+            </a>
+            <button class="btn btn-success mx-2" (click)="saveCategory()">
+              Salvar
+            </button>
+          </div>
+        </div>
+	</div>
+</div>
