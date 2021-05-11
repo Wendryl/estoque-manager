@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CategoryService} from 'src/app/Services/category.service';
 import {CompanyService} from 'src/app/Services/company.service';
 import {ProductService} from 'src/app/Services/product.service';
 
@@ -11,10 +12,12 @@ export class DashboardPageComponent implements OnInit {
 
   companyCounter: string | number = 'Carregando...';
   productCounter: string | number =  'Carregando...';
+  categoryCounter: string | number =  'Carregando...';
 
   constructor(
     private companyService: CompanyService,
-    private productService: ProductService
+    private productService: ProductService,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +31,12 @@ export class DashboardPageComponent implements OnInit {
       .subscribe(
         data => this.productCounter = data.length
       )
+
+    this.categoryService.list()
+      .subscribe(
+        data => this.categoryCounter = data.length
+      )
+
   }
 
 }

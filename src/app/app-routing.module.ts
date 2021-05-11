@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from './auth.guard';
+import {CategoriesPageComponent} from './Pages/categories-page/categories-page.component';
 import {CompaniesPageComponent} from './Pages/companies-page/companies-page.component';
 import {CompanyDetailComponent} from './Pages/company-detail/company-detail.component';
 import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.component';
@@ -51,6 +52,12 @@ const routes: Routes = [
   {
     path: 'dashboard/companies/:id',
     component: CompanyDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/categories',
+    component: CategoriesPageComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard]
   },

@@ -1,0 +1,59 @@
+<div class="row w-100">
+    <app-sidebar class="col-3 col-md-1"></app-sidebar>
+    <div class="col-9 col-md-11 py-3">
+        <h1 class="fs-2 fs-md-auto py-md-2">Categorias</h1>
+        <div class="overflow-scroll text-center py-4">
+            <div class="spinner-border text-primary" role="status" *ngIf="loading">
+                  <span class="visually-hidden">Carregando...</span>
+            </div>
+            <table class="table table-striped bg-light" *ngIf="!loading">
+                <thead class="p-3">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories">
+                        <th scope="row">{{ category.id }}</th>
+                        <td>{{ category.description }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a routerLink="/dashboard/categories/{{category.id}}" class="btn btn-outline-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-outline-danger" (click)="deleteCategory(category.description, category.id)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-between justify-content-md-end">
+          <a class="btn btn-light" [routerLink]="['/dashboard']">
+            Voltar
+          </a>
+          <a class="btn btn-primary mx-1 mx-md-2" [routerLink]="['/dashboard/new-category']">
+            <i class="fas fa-plus"></i>
+            Nova Categoria
+          </a>
+        </div>
+		<nav *ngIf="false">
+			<ul class="pagination justify-content-center">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1" 
+                        aria-disabled="true">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
