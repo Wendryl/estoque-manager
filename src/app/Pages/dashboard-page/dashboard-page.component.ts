@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CategoryService} from 'src/app/Services/category.service';
 import {CompanyService} from 'src/app/Services/company.service';
 import {ProductService} from 'src/app/Services/product.service';
+import {UserService} from 'src/app/Services/user.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -13,11 +14,13 @@ export class DashboardPageComponent implements OnInit {
   companyCounter: string | number = 'Carregando...';
   productCounter: string | number =  'Carregando...';
   categoryCounter: string | number =  'Carregando...';
+  userCounter: string | number =  'Carregando...';
 
   constructor(
     private companyService: CompanyService,
     private productService: ProductService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +38,11 @@ export class DashboardPageComponent implements OnInit {
     this.categoryService.list()
       .subscribe(
         data => this.categoryCounter = data.length
+      )
+
+    this.userService.list()
+      .subscribe(
+        data => this.userCounter = data.length
       )
 
   }
