@@ -9,6 +9,8 @@ import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.co
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import {ManageProductsComponent} from './Pages/manage-products-page/manage-products-page.component';
 import {ProductDetailComponent} from './Pages/product-detail/product-detail.component';
+import {UserDetailComponent} from './Pages/user-detail/user-detail.component';
+import {UsersPageComponent} from './Pages/users-page/users-page.component';
 
 const routes: Routes = [
   {
@@ -71,6 +73,24 @@ const routes: Routes = [
   {
     path: 'dashboard/new-category',
     component: CategoryDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/users',
+    component: UsersPageComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/users/:id',
+    component: UserDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dashboard/new-user',
+    component: UserDetailComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard]
   },

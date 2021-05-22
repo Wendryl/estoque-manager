@@ -24,6 +24,8 @@ import { CompanyDetailComponent } from './Pages/company-detail/company-detail.co
 import {registerLocaleData} from '@angular/common';
 import { CategoriesPageComponent } from './Pages/categories-page/categories-page.component';
 import { CategoryDetailComponent } from './Pages/category-detail/category-detail.component';
+import { UsersPageComponent } from './Pages/users-page/users-page.component';
+import { UserDetailComponent } from './Pages/user-detail/user-detail.component';
 
 registerLocaleData(localePt);
 
@@ -47,6 +49,8 @@ registerLocaleData(localePt);
     CompanyDetailComponent,
     CategoriesPageComponent,
     CategoryDetailComponent,
+    UsersPageComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@ export interface IUser {
   email: string,
   phone: string | null,
   profile_id: number,
-  uf: string | null,
+  uf: string,
   city: string | null,
-  neighborhood: string | null
+  neighborhood: string | null,
+  password?: string
 }
