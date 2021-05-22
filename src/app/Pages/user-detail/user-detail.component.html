@@ -1,0 +1,65 @@
+<div class="row w-100">
+	<app-sidebar class="col-3 col-md-1"></app-sidebar>
+	<div class="col-9 col-md-11 py-2 px-0">
+      <h1 class="py-2">{{ title }}</h1>
+        <div class="bg-white p-3 rounded">
+          <form [formGroup]="form">
+			<div class="mb-3">
+			  <label for="name" class="form-label">*Nome</label>
+			  <input placeholder="Insira o nome do usuário" type="text" class="form-control" id="name" formControlName="name">
+			</div>
+            <div class="row mb-0 mb-md-3">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="email" class="form-label">*E-mail</label>
+                <input placeholder="usuario@exemplo.com" type="email" class="form-control" id="email" formControlName="email">
+              </div>
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="phone" class="form-label">Telefone</label>
+                <input placeholder="(XX) XXXXXXXX" type="phone" class="form-control" id="phone" formControlName="phone">
+              </div>
+            </div>
+			<div class="mb-3" *ngIf="!userId">
+			  <label for="password" class="form-label">*Senha temporária</label>
+			  <input placeholder="Insira uma senha de pelo menos 6 caractéres" type="password" class="form-control" id="password" formControlName="password">
+			</div>
+            <div class="row mb-3">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="profile" class="form-label">*Perfil</label>
+                <select name="profile" id="profile" class="form-select" formControlName="profile">
+                  <option value="null">Selecione um Perfil</option>
+                  <option *ngFor="let profile of profiles; index as i" [value]="i">{{ profile }}</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="neighborhood" class="form-label">Endereço</label>
+                <input placeholder="Rua dos Alfeneiros, Nº 510" type="text" class="form-control" id="neighborhood" formControlName="neighborhood">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="uf" class="form-label">Estado (UF)</label>
+                <select name="uf" id="uf" class="form-select" formControlName="uf" (change)="loadCities(form.controls.uf.value)">
+                  <option value="null">Selecione um estado</option>
+                  <option *ngFor="let uf of ufs" [value]="uf.sigla">{{ uf.nome }}</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-6 mb-3 mb-md-0">
+                <label for="city" class="form-label">Cidade</label>
+                <select name="city" id="city" class="form-select" formControlName="city">
+                  <option value="null">Selecione uma cidade</option>
+                  <option *ngFor="let city of cities" [value]="city.nome">{{ city.nome }}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <div class="d-flex justify-content-end">
+            <a class="btn btn-light" [routerLink]="['/dashboard/users']">
+              Voltar
+            </a>
+            <button class="btn btn-success mx-2" (click)="saveUser()">
+              Salvar
+            </button>
+          </div>
+        </div>
+	</div>
+</div>
