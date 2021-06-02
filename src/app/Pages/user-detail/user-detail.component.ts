@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ICity} from 'src/app/Models/city';
 import {IUf} from 'src/app/Models/uf';
-import {IUser} from 'src/app/models/user';
+import {IUser} from 'src/app/Models/user';
 import {CepService} from 'src/app/Services/cep.service';
 import {UserService} from 'src/app/Services/user.service';
 import * as Swal from 'sweetalert2';

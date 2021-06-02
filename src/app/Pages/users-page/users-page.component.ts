@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/models/user';
+import { IUser } from 'src/app/Models/user';
 import { UserService } from 'src/app/Services/user.service';
 import * as Swal from 'sweetalert2';
 

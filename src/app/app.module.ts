@@ -26,6 +26,7 @@ import { CategoriesPageComponent } from './Pages/categories-page/categories-page
 import { CategoryDetailComponent } from './Pages/category-detail/category-detail.component';
 import { UsersPageComponent } from './Pages/users-page/users-page.component';
 import { UserDetailComponent } from './Pages/user-detail/user-detail.component';
+import { NewSalePageComponent } from './Pages/new-sale-page/new-sale-page.component';
 
 registerLocaleData(localePt);
 
@@ -51,6 +52,7 @@ registerLocaleData(localePt);
     CategoryDetailComponent,
     UsersPageComponent,
     UserDetailComponent,
+    NewSalePageComponent,
   ],
   imports: [
     BrowserModule,

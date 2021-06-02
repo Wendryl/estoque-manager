@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AuthGuard} from './auth.guard';
-import {CategoriesPageComponent} from './Pages/categories-page/categories-page.component';
-import {CategoryDetailComponent} from './Pages/category-detail/category-detail.component';
-import {CompaniesPageComponent} from './Pages/companies-page/companies-page.component';
-import {CompanyDetailComponent} from './Pages/company-detail/company-detail.component';
+import { AuthGuard} from './auth.guard';
+import { CategoriesPageComponent } from './Pages/categories-page/categories-page.component';
+import { CategoryDetailComponent } from './Pages/category-detail/category-detail.component';
+import { CompaniesPageComponent } from './Pages/companies-page/companies-page.component';
+import { CompanyDetailComponent } from './Pages/company-detail/company-detail.component';
 import { DashboardPageComponent } from './Pages/dashboard-page/dashboard-page.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
-import {ManageProductsComponent} from './Pages/manage-products-page/manage-products-page.component';
-import {ProductDetailComponent} from './Pages/product-detail/product-detail.component';
-import {UserDetailComponent} from './Pages/user-detail/user-detail.component';
-import {UsersPageComponent} from './Pages/users-page/users-page.component';
+import { ManageProductsComponent } from './Pages/manage-products-page/manage-products-page.component';
+import { NewSalePageComponent } from './Pages/new-sale-page/new-sale-page.component';
+import { ProductDetailComponent } from './Pages/product-detail/product-detail.component';
+import { UserDetailComponent } from './Pages/user-detail/user-detail.component';
+import { UsersPageComponent } from './Pages/users-page/users-page.component';
 
 const routes: Routes = [
   {
@@ -103,6 +104,11 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'login',
+  },
+  {
+    path: 'new-sale',
+    component: NewSalePageComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
